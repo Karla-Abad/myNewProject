@@ -6,9 +6,28 @@ const ProductForm = () => {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTitle("");
+    setPrice("");
+    setDescription("");
+
+    axios
+      .post("http://localhost:8000/api/products", {
+        title,
+        price,
+        description,
+      })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1>Product Manager</h1>
         <div>
           <label>Title</label>
