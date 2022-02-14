@@ -1,10 +1,14 @@
 import "./App.css";
-import ProductForm from "./components/ProductForm";
+import axios from "axios";
+import { Router } from "@reach/router";
+import Main from "./views/Main";
 
 const App = () => {
   return (
     <div className="App">
-      <ProductForm />
+      <Router>
+        <Main path="/home" default />
+      </Router>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const ProductForm = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <h1>Product Manager</h1>
-        <div>
+        <div className="form-fields">
           <label>Title</label>
           <input
             type="text"
@@ -37,7 +37,7 @@ const ProductForm = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-fields">
           <label>Price</label>
           <input
             type="number"
@@ -45,7 +45,7 @@ const ProductForm = () => {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-fields">
           <label>Description</label>
           <input
             type="text"
