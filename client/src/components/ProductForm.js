@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const ProductForm = () => {
-  const [products, setProducts] = useState([]);
+const ProductForm = (props) => {
+  const {products, setProducts} = props
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");

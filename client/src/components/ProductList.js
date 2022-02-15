@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import {Link} from "@reach/router"
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
+const ProductList = (props) => {
+  const {products, setProducts} = props;
 
   useEffect(() => {
     axios
@@ -24,6 +25,9 @@ const ProductList = () => {
         return <div key={index}>
           <div >
             {product.title}, {product.price}, {product.description}
+          </div>
+          <div> 
+          <Link to={`/products/${product._id}`}>{product.title}'s Page</Link>
           </div>
         </div>;
       })}
