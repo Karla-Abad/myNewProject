@@ -17,10 +17,11 @@ const Detail = (props)=>{
 
     return(
         <div>
-            <h2>Show One Product By Id</h2>
-            <div>Title: {product.title}</div>
-            <div>Price: {product.price}</div>
+            
+            <h2>{product.title}</h2>
+            <div>Price: ${product.price}</div>
             <div>Description: {product.description}</div>
+            <button>Delete</button>
         </div>
     )
 }

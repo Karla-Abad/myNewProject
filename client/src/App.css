@@ -28,3 +28,23 @@ button {
   border: none;
   border-radius: 10px;
 }
+
+.flex {
+  display: flex;
+  justify-content:space-between;
+  width: 400px;
+  margin: auto;
+  padding: 10px 10px 0px 10px;
+}
+
+.edit{
+  text-align: left;
+  width: 400px;
+  margin: auto;
+}
+
+.list{
+  width: 400px;
+  margin: auto;
+  margin-top: 5px;
+}

@@ -9,7 +9,7 @@ const Main = () => {
 
   return (
     <div>
-      <h2>Main</h2>
+      
       <ProductForm products={products} setProducts={setProducts} />
       <hr />
       <ProductList products={products} setProducts={setProducts} />

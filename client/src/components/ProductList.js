@@ -17,18 +17,32 @@ const ProductList = (props) => {
       });
   }, []);
 
+  // const handleDelete = (e) => {
+  //   const filteredProducts = products.filter((deleteIndex)=>{
+
+  //   })
+  // }
+
   return (
     <div>
-      <h2>Test Product List</h2>
+      <h2>All Products</h2>
       {
       products.map((product, index) => {
         return <div key={index}>
-          <div >
+          {/* <div >
             {product.title}, {product.price}, {product.description}
+          </div> */}
+          <div className="flex"> 
+          <Link to={`/products/${product._id}`}>{product.title}</Link>
+          {/* <Link to={"/products/edit/"+product._id}>Edit</Link> */}
+          <div>
+            <button>Delete</button>
           </div>
-          <div> 
-          <Link to={`/products/${product._id}`}>{product.title}'s Page</Link>
           </div>
+          <div className="edit">
+            <Link to={"/products/edit/"+product._id}>Edit</Link>
+          </div>
+          <hr className="list"/>
         </div>;
       })}
     </div>
