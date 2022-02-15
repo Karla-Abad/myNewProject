@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import {Link} from "@reach/router"
 
 const ProductList = (props) => {
-  const {products, setProducts} = props;
+  const {products, setProducts, removeFromDom} = props;
 
   
   const handleDelete = (productId) => {
