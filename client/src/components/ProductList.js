@@ -5,6 +5,16 @@ import {Link} from "@reach/router"
 const ProductList = (props) => {
   const {products, setProducts} = props;
 
+  
+  const handleDelete = (productId) => {
+    axios
+    .delete("http://localhost:8000/api/products/"+productId)
+    .then(res => {
+      removeFromDom(productId)
+    })
+    .catch(err => console.log(err))
+  }
+
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/products")
@@ -17,11 +27,7 @@ const ProductList = (props) => {
       });
   }, []);
 
-  // const handleDelete = (e) => {
-  //   const filteredProducts = products.filter((deleteIndex)=>{
-
-  //   })
-  // }
+  
 
   return (
     <div>
@@ -34,9 +40,9 @@ const ProductList = (props) => {
           </div> */}
           <div className="flex"> 
           <Link to={`/products/${product._id}`}>{product.title}</Link>
-          {/* <Link to={"/products/edit/"+product._id}>Edit</Link> */}
+          
           <div>
-            <button>Delete</button>
+            <button onClick={(e)=>{handleDelete(product._id)}}>Delete</button>
           </div>
           </div>
           <div className="edit">
