@@ -3,14 +3,15 @@ import ProductList from "../components/ProductList";
 import React, { useState } from "react";
 import axios from "axios";
 
-const Main = (props) => {
+const Main = () => {
   const [products, setProducts] = useState([]);
 
   return (
     <div>
-      <ProductForm products={products} setProducts={setProducts} />
+      <h2>Main</h2>
+      <ProductForm />
       <hr />
-      <ProductList products={products} setProducts={setProducts} />
+      <ProductList />
     </div>
   );
 };

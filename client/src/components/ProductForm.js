@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const ProductForm = () => {
+  const [products, setProducts] = useState([]);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -21,6 +22,7 @@ const ProductForm = () => {
       .then((res) => {
         console.log(res);
         console.log(res.data);
+        setProducts([...products, res.data]);
       })
       .catch((err) => console.log(err));
   };

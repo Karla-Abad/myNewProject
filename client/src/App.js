@@ -1,7 +1,9 @@
 import "./App.css";
-import axios from "axios";
+import React, { useState } from "react";
+
 import { Router } from "@reach/router";
 import Main from "./views/Main";
+import axios from "axios";
 
 const App = () => {
   return (
