@@ -8,7 +8,7 @@ const ProductList = (props) => {
   
   const handleDelete = (productId) => {
     axios
-    .delete("http://localhost:8000/api/products/"+productId)
+    .delete("http://localhost:8000/api/products/" + productId)
     .then(res => {
       removeFromDom(productId)
     })
@@ -19,8 +19,8 @@ const ProductList = (props) => {
     axios
       .get("http://localhost:8000/api/products")
       .then((res) => {
-        console.log(res.data.allProducts);
-        setProducts(res.data.allProducts);
+        console.log(res);
+        // setProducts(res.data.allProducts);
       })
       .catch((err) => {
         console.log(err);
@@ -32,24 +32,22 @@ const ProductList = (props) => {
   return (
     <div>
       <h2>All Products</h2>
+      
       {
-      products.map((product, index) => {
-        return <div key={index}>
-          {/* <div >
-            {product.title}, {product.price}, {product.description}
-          </div> */}
-          <div className="flex"> 
-          <Link to={`/products/${product._id}`}>{product.title}</Link>
-          
-          <div>
-            <button onClick={(e)=>{handleDelete(product._id)}}>Delete</button>
-          </div>
-          </div>
-          <div className="edit">
-            <Link to={"/products/edit/"+product._id}>Edit</Link>
-          </div>
-          <hr className="list"/>
-        </div>;
+        products.map((product, index) => {
+          return (
+          <div key={index}>
+            <div className="flex"> 
+              <Link to={`/products/${product._id}`}>{product.title}</Link>
+              <div>
+              <button onClick={(e)=>{handleDelete(product._id)}}>Delete</button>
+              </div>
+            </div>
+            <div className="edit">
+              <Link to={"/products/edit/"+product._id}>Edit</Link>
+            </div>
+            <hr className="list"/>
+          </div>)
       })}
     </div>
   );

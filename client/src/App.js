@@ -5,7 +5,7 @@ import { Router } from "@reach/router";
 import Main from "./views/Main";
 import axios from "axios";
 import Detail from "./components/Detail"
-import Update from "./components/Update"
+import Update from "./views/Update"
 
 const App = () => {
   return (
