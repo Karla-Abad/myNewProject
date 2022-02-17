@@ -1,17 +1,13 @@
+import { navigate } from '@reach/router';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import DeleteButton from '../components/DeleteButton';
 import ProductForm from '../components/ProductForm';
-
-
 
 const Update = (props)=> {
     const {id} = props;
     const [product, setProduct] = useState();
     const [loaded, setLoaded]= useState(false);
-    // const [title, setTitle] = useState("");
-    // const [price, setPrice] = useState("");
-    // const [description, setDescription] = useState("");
-    // const [headerTitle, setHeaderTitle] = useState("");
 
     useEffect(()=> {
         axios
@@ -19,11 +15,6 @@ const Update = (props)=> {
             .then(res => {
                 setProduct(res.data);
                 setLoaded(true);
-                // console.log(res.data);
-                // setTitle(res.data.title);
-                // setPrice(res.data.price);
-                // setDescription(res.data.description);
-                // setHeaderTitle(res.data.title);
             })
             .catch(err => console.log(err))
     },[]);
@@ -42,12 +33,17 @@ const Update = (props)=> {
         <div>
             <h1>Edit Product</h1>
             {loaded && (
-                <ProductForm 
-                    onSubmitProp = {updateProduct} 
-                    initialTitle={product.title}
-                    initialPrice={product.price}
-                    initialDescription = {product.description}
-                />
+                <div>
+                    <ProductForm 
+                        onSubmitProp = {updateProduct} 
+                        initialTitle={product.title}
+                        initialPrice={product.price}
+                        initialDescription = {product.description}
+                    />
+                    <div className='deleteButton'>
+                        <DeleteButton productId={product._id} successCallback = {()=> navigate("/products")} />
+                    </div>
+                </div>
             )}
             
         </div>
